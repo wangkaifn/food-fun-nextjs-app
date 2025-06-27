@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/release-it/release-it/main/config/release-it.json",
+  "git": {
+    "pushRepo": "https://github.com/wangkaifn/nextjs-boilerplates-starter.git",
+    "requireBranch": "main",
+    "requireCleanWorkingDir": true,
+    "addUntrackedFiles": false,
+    "commit": true,
+    "commitMessage": "chore(release): v${version}",
+    "tag": true,
+    "tagName": "v${version}",
+    "tagAnnotation": "Release v${version}",
+    "push": true,
+    "pushArgs": ["--follow-tags"]
+  },
+  "github": {
+    "release": true,
+    "releaseName": "🚀 Release v${version}",
+    "releaseNotes": "npx conventional-changelog-cli -p angular --outfile /dev/stdout",
+    "autoGenerate": false,
+    "preRelease": false,
+    "draft": false,
+    "tokenRef": "GITHUB_TOKEN",
+    "assets": [],
+    "web": true
+  },
+  "npm": {
+    "publish": false,
+    "skipChecks": true
+  },
+  "hooks": {
+    "before:init": ["pnpm run lint", "pnpm run type-check", "pnpm run build"]
+  },
+  "plugins": {
+    "release-it-pnpm": {
+      "publishAll": false,
+      "skipChecks": true
+    },
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
+  }
+}
