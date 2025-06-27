@@ -1,8 +1,7 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme/theme-provider"
-import { cn } from "@/lib/utils"
+import BottomNavigation from "@/components/layout/bottom-navigation"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +14,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "食趣 - 美食探索平台",
-  description: "发现美食，享受烹饪，健康生活"
+  title: "Food Fun Next.js App",
+  description: "一个美食相关的 Next.js 应用"
 }
 
 export default function RootLayout({
@@ -25,9 +24,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en' suppressHydrationWarning>
-      <body className={cn(geistSans.variable, geistMono.variable, "antialiased bg-theme-gradient")}>
-        <ThemeProvider>{children}</ThemeProvider>
+    <html lang='zh-CN' suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-theme-gradient text-foreground`}
+      >
+        <main className='flex-1'>{children}</main>
+        <BottomNavigation />
       </body>
     </html>
   )

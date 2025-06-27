@@ -1,30 +1,41 @@
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme/theme-toggle"
+import Loading from "./loading"
 
 export default function Home() {
   return (
     <div className='min-h-screen font-[family-name:var(--font-geist-sans)] p-8'>
       <div className='max-w-4xl mx-auto'>
         {/* 头部区域 */}
-        <header className='flex justify-between items-center mb-8'>
-          <h1 className='text-4xl font-bold'>Hello Next.js</h1>
-          <ThemeToggle />
+        <header className='text-center mb-12'>
+          <h1 className='text-5xl font-bold mb-4'>欢迎来到 Food Fun</h1>
+          <p className='text-xl text-muted-foreground'>美食探索，生活乐趣</p>
         </header>
 
         {/* 主要内容区域 */}
         <main className='space-y-8'>
-          <div className='bg-card/80 backdrop-blur-sm rounded-lg p-6 border'>
-            <h2 className='text-2xl font-semibold mb-4'>主题适配的背景渐变</h2>
-            <p className='text-muted-foreground mb-4'>
-              在亮色主题下显示暖色调的渐变（橙→黄→绿）， 在暗色主题下显示对应的暗色调渐变。
-            </p>
-            <div className='flex gap-4'>
-              <Button>主要按钮</Button>
-              <Button variant='outline'>次要按钮</Button>
+          <div className='grid md:grid-cols-3 gap-6'>
+            <div className='bg-card/80 backdrop-blur-sm rounded-lg p-6 border'>
+              <div className='text-3xl mb-4'>🍽️</div>
+              <h3 className='text-xl font-semibold mb-3'>美食推荐</h3>
+              <p className='text-muted-foreground'>精选全球美食，为您推荐最受欢迎的菜品和餐厅。</p>
+            </div>
+
+            <div className='bg-card/80 backdrop-blur-sm rounded-lg p-6 border'>
+              <div className='text-3xl mb-4'>👨‍🍳</div>
+              <h3 className='text-xl font-semibold mb-3'>烹饪指南</h3>
+              <p className='text-muted-foreground'>
+                详细的烹饪教程，让您轻松掌握各种美食的制作技巧。
+              </p>
+            </div>
+
+            <div className='bg-card/80 backdrop-blur-sm rounded-lg p-6 border'>
+              <div className='text-3xl mb-4'>🥗</div>
+              <h3 className='text-xl font-semibold mb-3'>健康饮食</h3>
+              <p className='text-muted-foreground'>营养搭配建议，帮助您保持健康的饮食习惯。</p>
             </div>
           </div>
         </main>
       </div>
+      <Loading />
     </div>
   )
 }
