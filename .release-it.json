@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/release-it/release-it/main/config/release-it.json",
   "git": {
-    "pushRepo": "https://github.com/wangkaifn/nextjs-boilerplates-starter.git",
+    "pushRepo": "https://github.com/wangkaifn/food-fun-nextjs-app.git",
     "requireBranch": "main",
     "requireCleanWorkingDir": true,
     "addUntrackedFiles": false,

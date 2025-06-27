@@ -1,21 +1,6 @@
-# Next.js Boilerplate Starter
+# 项目概述
 
-🏗️ 现代化 Next.js 脚手架项目，集成 React 19、TypeScript、Tailwind CSS v4 和完整的开发工具链，包含自动化代码检查、规范化提交流程和版本发布管理。
-
-## ✨ 特性
-
-- ⚡️ **[Next.js 15.3.4](https://nextjs.org/)** - 最新版本，使用 App Router + Turbopack
-- ⚛️ **[React 19](https://react.dev/)** - 最新版本 React
-- 🦾 **[TypeScript](https://www.typescriptlang.org/)** - 类型安全开发
-- 🎨 **[Tailwind CSS v4](https://tailwindcss.com/)** - 现代化 CSS 框架
-- 📦 **[pnpm](https://pnpm.io/)** - 高效包管理器
-- 🔍 **[ESLint](https://eslint.org/)** - 代码质量检查
-- 💄 **[Prettier](https://prettier.io/)** - 代码格式化
-- 🐕 **[Husky](https://typicode.github.io/husky/zh/)** - Git hooks 管理
-- 🚫 **[lint-staged](https://github.com/lint-staged/lint-staged)** - 暂存文件检查
-- 📝 **[Commitizen](https://github.com/commitizen/cz-cli)** - 交互式提交
-- 🔒 **[Commitlint](https://commitlint.js.org/)** - 提交信息规范
-- 🚀 **[Release-it](https://github.com/release-it/release-it)** - 自动化版本发布
+食趣 App 是一个美食社区和烹饪助手应用，旨在帮助用户发现、分享和创建美食食谱
 
 ## 🚀 快速开始
 
@@ -28,8 +13,8 @@
 
 ```bash
 # 克隆项目
-git clone https://github.com/wangkaifn/nextjs-boilerplates-starter.git
-cd nextjs-boilerplates-starter
+git clone https://github.com/wangkaifn/food-fun-nextjs-app.git
+cd food-fun-nextjs-app
 
 # 安装依赖
 pnpm install
@@ -45,15 +30,12 @@ pnpm run dev
 ## 📁 项目结构
 
 ```
-nextjs-boilerplates-starter/
+food-fun-nextjs-app/
 ├── docs/                     # 项目文档
-│   ├── nextjs-工程化配置说明.md
-│   └── nextjs-development-guide.md
 ├── public/                   # 静态资源
 ├── src/
 │   ├── app/                  # Next.js App Router
 │   │   ├── (auth)/          # 路由分组 - 认证页面
-│   │   ├── (dashboard)/     # 路由分组 - 仪表板
 │   │   ├── api/             # API 路由
 │   │   ├── globals.css      # 全局样式
 │   │   ├── layout.tsx       # 根布局
