@@ -1,8 +1,9 @@
-import Loading from "./loading"
+// import Loading from "./loading"
 
 export default function Home() {
   return (
-    <div className='min-h-screen font-[family-name:var(--font-geist-sans)] p-8'>
+    <div className='h-full font-[family-name:var(--font-geist-sans)] p-8'>
+      测试 PWA 更新1
       <div className='max-w-4xl mx-auto'>
         {/* 头部区域 */}
         <header className='text-center mb-12'>
@@ -35,7 +36,7 @@ export default function Home() {
           </div>
         </main>
       </div>
-      <Loading />
+      {/* <Loading /> */}
     </div>
   )
 }

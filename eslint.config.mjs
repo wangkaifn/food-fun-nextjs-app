@@ -15,6 +15,16 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
 
   {
+    ignores: [
+      "node_modules",
+      "dist",
+      "build",
+      ".next",
+      "public/**/*",
+      "**/sw.js",
+      "**/sw.ts",
+      "src/app/sw.ts"
+    ],
     // 指定要检查的文件类型
     files: ["**/*.{js,jsx,ts,tsx}"],
     plugins: {
@@ -34,7 +44,7 @@ const eslintConfig = [
       "react-hooks/exhaustive-deps": "warn", // 警告缺失依赖
 
       // 通用代码质量规则
-      "no-console": "error", // 警告使用 console
+      "no-console": "warn", // 警告使用 console
       "no-debugger": "error", // 禁止使用 debugger
       "prefer-const": "error", // 优先使用 const
       "no-var": "error" // 禁止使用 var

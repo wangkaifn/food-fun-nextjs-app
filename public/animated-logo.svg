@@ -1,0 +1,97 @@
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      /* 动画定义 */
+      @keyframes chopsticks-eating {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        25% { transform: translateY(-3px) rotate(-2deg); }
+        50% { transform: translateY(0) rotate(0deg); }
+        75% { transform: translateY(-2px) rotate(1deg); }
+      }
+      
+      @keyframes steam-rising {
+        0% { opacity: 0.4; transform: translateY(0) scale(1); }
+        50% { opacity: 0.8; transform: translateY(-8px) scale(1.1); }
+        100% { opacity: 0.2; transform: translateY(-15px) scale(0.8); }
+      }
+      
+      @keyframes food-floating {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-2px); }
+      }
+      
+      @keyframes bowl-wiggle {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(0.5deg); }
+      }
+      
+      @keyframes breathing {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.01); }
+      }
+      
+      /* 应用动画 */
+      .chopstick-1 {
+        animation: chopsticks-eating 2s ease-in-out infinite;
+        transform-origin: 70px 60px;
+      }
+      
+      .chopstick-2 {
+        animation: chopsticks-eating 2s ease-in-out infinite 0.5s;
+        transform-origin: 110px 60px;
+      }
+      
+      .steam-1 {
+        animation: steam-rising 2.5s ease-in-out infinite;
+      }
+      
+      .steam-2 {
+        animation: steam-rising 2.5s ease-in-out infinite 0.8s;
+      }
+      
+      .food-1 {
+        animation: food-floating 2s ease-in-out infinite;
+      }
+      
+      .food-2 {
+        animation: food-floating 2s ease-in-out infinite 0.7s;
+      }
+      
+      .food-3 {
+        animation: food-floating 2s ease-in-out infinite 1.4s;
+      }
+      
+      .bowl-group {
+        animation: bowl-wiggle 3s ease-in-out infinite;
+        transform-origin: 100px 120px;
+      }
+      
+      .background {
+        animation: breathing 4s ease-in-out infinite;
+        transform-origin: 100px 100px;
+      }
+    </style>
+  </defs>
+  
+  <!-- 圆形背景 (呼吸效果) -->
+  <circle class="background" cx="100" cy="100" r="90" fill="#FEF3C7" stroke="#F97316" stroke-width="6" />
+  
+  <!-- 碗 (轻微摇摆) -->
+  <g class="bowl-group">
+    <path d="M50 120C50 90 75 80 100 80C125 80 150 90 150 120" stroke="#F97316" stroke-width="8" stroke-linecap="round" />
+    <path d="M50 120H150" stroke="#F97316" stroke-width="8" stroke-linecap="round" />
+  </g>
+  
+  <!-- 筷子 (夹菜动作) -->
+  <path class="chopstick-1" d="M70 60L90 120" stroke="#F97316" stroke-width="6" stroke-linecap="round" />
+  <path class="chopstick-2" d="M110 60L100 120" stroke="#F97316" stroke-width="6" stroke-linecap="round" />
+  
+  <!-- 食物元素 (浮动效果) -->
+  <circle class="food-1" cx="85" cy="100" r="10" fill="#F97316" />
+  <circle class="food-2" cx="115" cy="100" r="8" fill="#F97316" />
+  <circle class="food-3" cx="100" cy="110" r="6" fill="#F97316" />
+  
+  <!-- 蒸汽 (上升效果) -->
+  <path class="steam-1" d="M85 70C85 65 90 60 95 65C100 70 105 65 105 60" stroke="#F97316" stroke-width="4" stroke-linecap="round" opacity="0.6" />
+  <path class="steam-2" d="M115 70C115 65 120 60 125 65" stroke="#F97316" stroke-width="4" stroke-linecap="round" opacity="0.6" />
+</svg> 
