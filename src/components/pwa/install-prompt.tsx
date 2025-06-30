@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -22,6 +23,7 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 export default function PWAInstallPrompt() {
+  const t = useTranslations("pwa")
   const [showPrompt, setShowPrompt] = useState(false)
   const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null)
   const [neverShowAgain, setNeverShowAgain] = useState(false)
@@ -154,18 +156,16 @@ export default function PWAInstallPrompt() {
               <div className='size-8 bg-primary text-primary-foreground rounded-lg flex items-center justify-center'>
                 <Icon name='Download' />
               </div>
-              <CardTitle className='text-lg'>安装食趣应用</CardTitle>
+              <CardTitle className='text-lg'>{t("installTitle")}</CardTitle>
             </div>
             <Button variant='ghost' size='sm' className='h-8 w-8 p-0' onClick={handleClose}>
               <Icon name='X' />
             </Button>
           </div>
-          <CardDescription>获得更好的使用体验</CardDescription>
+          <CardDescription>{t("installDescription")}</CardDescription>
         </CardHeader>
         <CardContent className='pb-2'>
-          <p className='text-sm'>
-            将食趣安装到您的设备上，随时随地访问，即使在离线状态下也能使用部分功能。
-          </p>
+          <p className='text-sm'>{t("installContent")}</p>
 
           {/* 不再提醒选择框 */}
           <div className='flex items-center space-x-2 mt-3 pt-2 border-t border-border/50'>
@@ -180,17 +180,17 @@ export default function PWAInstallPrompt() {
               htmlFor='never-show-again'
               className='text-xs text-muted-foreground cursor-pointer select-none'
             >
-              不再提醒安装
+              {t("neverShow")}
             </label>
           </div>
         </CardContent>
         <CardFooter className='flex justify-end gap-2'>
           <Button variant='outline' onClick={handleClose}>
-            稍后再说
+            {t("installLater")}
           </Button>
           <Button onClick={handleInstall}>
             <Icon name='Download' className='mr-2' />
-            立即安装
+            {t("installNow")}
           </Button>
         </CardFooter>
       </Card>

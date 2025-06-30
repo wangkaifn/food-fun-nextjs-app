@@ -1,5 +1,8 @@
 import type { NextConfig } from "next"
 import withSerwistInit from "@serwist/next"
+import createNextIntlPlugin from "next-intl/plugin"
+
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts")
 
 const withSerwist = withSerwistInit({
   // 在开发环境禁用Serwist，避免Turbopack兼容性问题
@@ -10,6 +13,7 @@ const withSerwist = withSerwistInit({
 
 const nextConfig: NextConfig = {
   /* config options here */
+  devIndicators: false
 }
 
-export default withSerwist(nextConfig)
+export default withSerwist(withNextIntl(nextConfig))

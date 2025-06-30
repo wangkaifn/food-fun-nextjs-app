@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -13,6 +14,7 @@ import {
 import { Icon } from "@/components/common/icon"
 
 export default function PWAUpdatePrompt() {
+  const t = useTranslations("pwa")
   const [showUpdatePrompt, setShowUpdatePrompt] = useState(false)
   const [waitingWorker, setWaitingWorker] = useState<ServiceWorker | null>(null)
   const [refreshing, setRefreshing] = useState(false)
@@ -135,36 +137,34 @@ export default function PWAUpdatePrompt() {
               <div className='size-8 bg-primary text-primary-foreground rounded-lg flex items-center justify-center'>
                 <Icon name='RefreshCw' />
               </div>
-              <CardTitle className='text-lg'>新版本可用</CardTitle>
+              <CardTitle className='text-lg'>{t("updateTitle")}</CardTitle>
             </div>
             <Button variant='ghost' size='sm' className='h-8 w-8 p-0' onClick={handleClose}>
               <Icon name='X' />
             </Button>
           </div>
-          <CardDescription>发现应用更新</CardDescription>
+          <CardDescription>{t("updateDescription")}</CardDescription>
         </CardHeader>
         <CardContent className='pb-2'>
-          <p className='text-sm'>
-            食趣应用有新版本可用，包含功能改进和错误修复。更新后将获得更好的使用体验。
-          </p>
+          <p className='text-sm'>{t("updateContent")}</p>
           {refreshing && (
-            <div className='mt-2 text-xs text-blue-600 font-medium'>正在应用更新，请稍候...</div>
+            <div className='mt-2 text-xs text-blue-600 font-medium'>{t("updating")}</div>
           )}
         </CardContent>
         <CardFooter className='flex justify-end gap-2'>
           <Button variant='outline' onClick={handleClose} disabled={refreshing}>
-            稍后更新
+            {t("updateLater")}
           </Button>
           <Button onClick={handleUpdate} disabled={refreshing || !waitingWorker}>
             {refreshing ? (
               <>
                 <Icon name='Loader2' className='mr-2 animate-spin' />
-                更新中...
+                {t("updating")}
               </>
             ) : (
               <>
                 <Icon name='Download' className='mr-2' />
-                立即更新
+                {t("updateNow")}
               </>
             )}
           </Button>

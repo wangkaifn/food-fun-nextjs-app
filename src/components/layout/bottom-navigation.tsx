@@ -1,48 +1,44 @@
 "use client"
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { useTranslations } from "next-intl"
+import { Icon } from "@/components/common/icon"
 import { cn } from "@/lib/utils"
-import { Icon, IconProps } from "../common/icon"
+import { Link, usePathname } from "@/i18n/navigation"
+
+const navItems = [
+  { key: "home", href: "/", icon: "Home" },
+  { key: "search", href: "/search", icon: "Search" },
+  { key: "ai", href: "/ai", icon: "Bot" },
+  { key: "community", href: "/community", icon: "Users" },
+  { key: "my", href: "/my", icon: "User" }
+] as const
 
 export default function BottomNavigation() {
+  const t = useTranslations("navigation")
   const pathname = usePathname()
 
-  //   // 在认证页面和根路径(开屏动画显示时)不显示底部导航
-  //   const isAuthPage = pathname.startsWith("/auth/")
-
-  //   if (isAuthPage) {
-  //     return null
-  //   }
-
-  const navItems: { href: string; icon: IconProps["name"]; label: string }[] = [
-    { href: "/", icon: "Home", label: "首页" },
-    { href: "/search", icon: "Search", label: "搜索" },
-    { href: "/ai", icon: "Brain", label: "AI" },
-    { href: "/community", icon: "Users", label: "社区" },
-    { href: "/my", icon: "User", label: "我的" }
-  ]
+  // 检查当前路径是否激活
+  const isActive = (href: string) => {
+    return pathname === href
+  }
 
   return (
-    <div className='fixed bottom-0 left-0 right-0 border-t bg-background z-10'>
-      <nav className='flex justify-around items-center h-16'>
-        {navItems.map(item => {
-          const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`)
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "flex flex-col items-center justify-center w-full h-full",
-                isActive ? "text-primary" : "text-muted-foreground"
-              )}
-            >
-              <Icon name={item.icon} className='h-5 w-5' />
-              <span className='text-xs mt-1'>{item.label}</span>
-            </Link>
-          )
-        })}
-      </nav>
-    </div>
+    <nav className='fixed bottom-0 left-0 right-0 z-50 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 pb-safe'>
+      <div className='flex h-16 items-center justify-around px-safe'>
+        {navItems.map(item => (
+          <Link
+            key={item.key}
+            href={item.href}
+            className={cn(
+              "flex flex-col items-center justify-center gap-1 px-3 py-2 text-xs transition-colors hover:text-foreground/80",
+              isActive(item.href) ? "text-primary" : "text-muted-foreground"
+            )}
+          >
+            <Icon name={item.icon} className='size-5' />
+            <span className='text-[10px] leading-tight'>{t(item.key)}</span>
+          </Link>
+        ))}
+      </div>
+    </nav>
   )
 }

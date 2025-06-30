@@ -142,3 +142,42 @@
     transition: background 0.5s ease-in-out;
   }
 }
+
+@layer utilities {
+  /* 安全区域样式 - 适配刘海屏和有下巴的设备 */
+  .pb-safe {
+    /* 使用 env() 函数获取设备底部安全区域的高度
+     * 这样可以确保内容不会被刘海屏、圆角或底部手势区域遮挡
+     * 在 iPhone X 等带有底部手势条的设备上特别有用
+     * env(safe-area-inset-bottom) 会自动返回设备底部安全区域的像素值
+     */
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .pl-safe {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .pr-safe {
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .px-safe {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .py-safe {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .p-safe {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+      env(safe-area-inset-left);
+  }
+}

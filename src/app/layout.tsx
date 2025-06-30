@@ -1,10 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
-import BottomNavigation from "@/components/layout/bottom-navigation"
-import PWAInstallPrompt from "@/components/pwa/install-prompt"
-import PWAUpdatePrompt from "@/components/pwa/update-prompt"
-import { cn } from "@/lib/utils"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +13,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Food Fun Next.js App",
+  title: "Food Fun",
   description: "一个美食相关的 Next.js 应用",
   manifest: "/manifest.json",
   appleWebApp: {
@@ -31,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Food Fun",
-    title: "Food Fun Next.js App",
+    title: "Food Fun",
     description: "一个美食相关的 Next.js 应用"
   }
 }
@@ -44,13 +40,9 @@ export const viewport: Viewport = {
   userScalable: false
 }
 
-export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='zh-CN' suppressHydrationWarning>
+    <html suppressHydrationWarning>
       <head>
         <link rel='icon' href='/favicon.ico' />
         <link rel='apple-touch-icon' href='/icons/icon-192x192.png' />
@@ -58,16 +50,7 @@ export default function RootLayout({
         <meta name='apple-mobile-web-app-capable' content='yes' />
         <meta name='apple-mobile-web-app-status-bar-style' content='default' />
       </head>
-      <body
-        className={cn(
-          `${geistSans.variable} ${geistMono.variable} antialiased bg-theme-gradient text-foreground flex flex-col min-h-screen`
-        )}
-      >
-        <PWAUpdatePrompt />
-        <main className='flex-1'>{children}</main>
-        <BottomNavigation />
-        <PWAInstallPrompt />
-      </body>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
     </html>
   )
 }
