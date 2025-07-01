@@ -17,6 +17,10 @@ export default function BottomNavigation() {
   const t = useTranslations("navigation")
   const pathname = usePathname()
 
+  // 是否显示底部导航
+  const isShowBottomNavigation = navItems.some(item => item.href === pathname)
+  if (!isShowBottomNavigation) return null
+
   // 检查当前路径是否激活
   const isActive = (href: string) => {
     return pathname === href

@@ -44,7 +44,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <NextIntlClientProvider locale={locale} messages={messages}>
       <div className={cn("antialiased bg-theme-gradient text-foreground min-h-screen")}>
         <PWAUpdatePrompt />
-        <main className='pb-20'>{children}</main>
+        <main>{children}</main>
         <BottomNavigation />
         <PWAInstallPrompt />
       </div>

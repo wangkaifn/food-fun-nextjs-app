@@ -31,7 +31,7 @@ export default function NotFound() {
         {/* 操作按钮 */}
         <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
           <Button asChild size='lg' className='min-w-32'>
-            <Link href='/'>
+            <Link href='/' className='flex items-center'>
               <Icon name='Home' className='mr-2' />
               {t("goHome")}
             </Link>

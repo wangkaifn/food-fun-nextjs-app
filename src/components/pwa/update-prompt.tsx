@@ -157,15 +157,15 @@ export default function PWAUpdatePrompt() {
           </Button>
           <Button onClick={handleUpdate} disabled={refreshing || !waitingWorker}>
             {refreshing ? (
-              <>
+              <span className='flex items-center'>
                 <Icon name='Loader2' className='mr-2 animate-spin' />
                 {t("updating")}
-              </>
+              </span>
             ) : (
-              <>
+              <span className='flex items-center'>
                 <Icon name='Download' className='mr-2' />
                 {t("updateNow")}
-              </>
+              </span>
             )}
           </Button>
         </CardFooter>
